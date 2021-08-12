@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular Valor da Conta de Luz</title>
+</head>
+<body>
+    <form method="POST" action="./calcularAumento.php">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome">
+
+        <label for="salarioAtual">Salário atual:</label>
+        <input type="text" id="salarioAtual" value="salarioAtual">
+
+        <label for="feminino">Feminino:</label>
+        <input type="radio" id="feminino" value="genero">
+
+        <label for="masculino">Masculino:</label>
+        <input type="radio" id="masculino" name="genero">
+
+        <label for="outro">Outro:</label>
+        <input type="radio" id="outro" name="genero">
+
+        <select name="cargo">
+            <option value="CEO">CEO</option>
+            <option value="gerente">Gerente geral</option>
+            <option value="secretario">Secretário executivo</option>
+            <option value="diretor">Diretor de marketing</option>
+            <option value="back">Programador Back-End</option>
+            <option value="front">Programador Front-End</option>
+            <option value="dba">DBA</option>
+            <option value="faxineiro">Faxineiro(a)</option>
+            <option value="segurança">Segurança</option>
+        </select>
+
+        <button>Calcular</button>
+    </form>
+</body>
+</html>
