@@ -1,27 +1,50 @@
 <?php
 
-if (isset($_POST["nome"]) && isset($_POST["salarioAtual"]) && isset($_POST["feminino"]) 
-    && isset($_POST["masculino"]) && isset($_POST["outro"]) && isset($_POST["cargo"])) {
+if (isset($_POST["nome"]) && isset($_POST["salarioAtual"]) && isset($_POST["genero"]) 
+     && isset($_POST["cargo"])) {
+           
+    $nome = $_POST["nome"];
+    $salarioAtual = $_POST["salarioAtual"];
+    $genero = $_POST["genero"];
+    $cargo = $_POST["cargo"];
 
-        $nome = $_POST["nome"];
-        $salarioAtual = $_POST["salarioAtual"];
-        $feminino = $_POST["feminino"];
-        $masculino = $_POST["masculino"];
-        $outro = $_POST["outro"];
-        $cargo = $_POST["select"];
+    // if ($salarioAtual > 5000) {
+    //     $salarioFinal = $salarioAtual + ($salarioAtual * (10/100));
+    //     echo ("$nome passará a receber $salarioFinal, no cargo de $cargo.");
+    // } else {
+    //     $salarioFinal = $salarioAtual + ($salarioAtual * (20/100));
+    //     echo ("$nome passará a receber $salarioFinal, no cargo de $cargo.");
+    // }
 
-    } else {
-        echo "<h1>Você não enviou as informações corretamente.</h1>";
-    }
+    $salarioFinal = $salarioAtual > 5000 ? $salarioAtual * 1.1 : $salarioAtual * 1.2;
 
-    $salarioAtual = 0;
-    $salarioFinal = 0;
+} else {
+    echo "<h1>Você não enviou os dados.</h1>";
+}
 
-    if ($salarioAtual > 5000) {
-        $salarioFinal = $salarioAtual * (10/100);
-        echo "$nome passará a receber $salarioFinal, no cargo de $cargo."
-    } else {
-        $salarioFinal = $salarioAtual * (20/100);
-        echo "$nome passará a receber $salarioFinal, no cargo de $cargo."
-    }
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calcular acréscimo de salário</title>
+</head>
+<body>
+    <main>
+        <p> <?= $genero === "m" ? "O" : ($genero === "f" ? "A" : "") ?>
+            <?= $nome ?> passará a receber R$ 
+        <?= number_format($salarioFinal, 2, ",", ".")?>, no cargo de <?=$cargo?>.</p>
+    </main>
+</body>
+</html>
+
+
+    
+
+
+    
 
